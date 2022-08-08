@@ -40,5 +40,19 @@ def limit_handler(cursor):
         pass
 
 
-for follower in limit_handler(tweepy.Cursor(api.get_followers).items()):
-    print(follower.screen_name)
+search = 'etahamed'
+numberOfTweets = 2
+
+# like some tweets
+for tweet in limit_handler(tweepy.Cursor(api.search_tweets, search).items(numberOfTweets)):
+    try:
+        tweet.favorite()
+        print('I liked a tweet')
+        time.sleep(5)
+    except tweepy.TweepError as e:
+        print(e.reason)
+    except StopIteration:
+        break
+
+# tweet something
+api.update_status('Is this bot working? 👀')
