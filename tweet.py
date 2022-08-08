@@ -3,6 +3,17 @@ import time
 import os
 import dotenv
 
+banner = """
+ _______                _           _ 
+|__   __|              | |         | |
+   | |_      _____  ___| |_ ___  __| |
+   | \ \ /\ / / _ \/ _ \ __/ _ \/ _` |
+   | |\ V  V /  __/  __/ ||  __/ (_| |
+   |_| \_/\_/ \___|\___|\__\___|\__,_|
+
+"""
+print(banner)
+
 dotenv.load_dotenv()
 
 consumer_key = os.environ['CONSUMER_KEY']
